@@ -20,7 +20,10 @@ class Chart extends React.Component {
         }
       },
       y: {
-        label: '護病比數字',
+        label: {
+          text: '護病比率',
+          position: 'outer-middle',
+        }
       },
     };
     return (

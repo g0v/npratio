@@ -24,17 +24,21 @@ class App extends Component {
     const { hospital } = this.state;
     return (
       <div className="viewport">
-        <SearchBar
-          placeholder="搜尋醫院"
-          onChange={(input, resolve) => {
-            resolve(_.take([].concat(fuse.search(input)), 5));
-          }}
-          onSearch={(hospital) => {
-            if (!hospital) return;
-            this.setState({ hospital });
-          }}
-        />
-        <Hospital hospital={hospital} />
+        <div className="searchbar">
+          <SearchBar
+            placeholder="搜尋醫院"
+            onChange={(input, resolve) => {
+              resolve(_.take([].concat(fuse.search(input), list), 5));
+            }}
+            onSearch={(hospital) => {
+              if (!hospital) return;
+              this.setState({ hospital });
+            }}
+          />
+        </div>
+        <div className="hospital">
+          <Hospital hospital={hospital} />
+        </div>
       </div>
     );
   }

@@ -1,6 +1,14 @@
 .viewport {
   text-align: left;
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid #666;
+  padding: 18px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  background: #FFF;
+  border-radius: 10px;
 }
 
 .search-bar-wrapper {

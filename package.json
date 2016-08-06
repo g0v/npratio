@@ -17,7 +17,7 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "./",
+  "homepage": "https://g0v.github.io/npratio",
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
   }

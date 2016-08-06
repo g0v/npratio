@@ -9,29 +9,35 @@ class Hospital extends React.Component {
   render() {
     const { hospital } = this.props;
 
-    let monthData = [];
-    let sum = 0;
+    let jsonData = {};
+    let cmp;
 
-    for (let i = 1; i <= 12; i++) {
-      const month = i+'\u6708';
-      monthData.push(hospital[month]);
-      sum += parseInt(hospital[month], 10);
-    };
+    if (hospital['醫院簡稱'] !== undefined) {
+      let monthData = [];
+      let sum = 0;
 
-    const avg = sum/12.;
+      for (let i = 1; i <= 12; i++) {
+        const month = i+'\u6708';
+        monthData.push(hospital[month]);
+        sum += parseInt(hospital[month], 10);
+      };
 
-    monthData.unshift( hospital['醫院簡稱'] );
+      const avg = sum/12.;
+      let avgData = [];
+      for (let i = 0; i < 12; i++) {
+        avgData.push(avg.toFixed(1));
+      };
+      jsonData[hospital['醫院簡稱']] = monthData;
+      jsonData['本院平均'] = avgData;
+
+      cmp = <Chart jsonData={jsonData} />;
+    } else {
+      cmp = <div>{' '}</div>;
+    }
 
     return (
       <div>
-        <div>
-          <h1> name: { hospital['醫院簡稱'] || 'None' } </h1>
-          <h3> full name: { hospital['醫事機構名稱'] || 'None' } </h3>
-          type: { hospital['特約類別'] || 'None' } <br />
-          address: { hospital['地址'] || 'None' } <br />
-          average ratio: { avg || 'None' }
-        </div>
-        <Chart columns={[monthData]} />
+        {cmp}
       </div>
     );
   }

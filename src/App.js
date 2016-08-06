@@ -25,6 +25,7 @@ class App extends Component {
 
     return (
       <div className="viewport">
+        <h1>台灣各醫院護病比</h1>
         <div className="searchbar">
           <SearchBar
             placeholder="搜尋醫院"
@@ -40,6 +41,9 @@ class App extends Component {
         <div className="hospital">
           <Hospital hospital={hospital} />
         </div>
+        <span>
+          橫軸是月份，縱軸就是傳說中的「護病比」！也就是「一個護理人員要照顧幾個病人」，數字越高越血汗。
+        </span>
         <div className="tip">
           <div>如果你覺得某家醫院的數字「是假的！」，可以試試看：〈盡量附上相關事證依據喔！〉</div>
             <ol>

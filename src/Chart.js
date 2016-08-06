@@ -15,6 +15,9 @@ class Chart extends React.Component {
     const axis = {
       x: {
         label: '月份',
+        tick: {
+          values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        }
       },
       y: {
         label: '護病比數字',

@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+input {
+  font-size: 110%;
+  outline: 0;
+}

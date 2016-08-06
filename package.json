@@ -2,12 +2,12 @@
   "name": "npratio",
   "version": "0.0.1",
   "private": true,
-  "devDependencies": {
-    "react-scripts": "0.2.1"
-  },
   "dependencies": {
+    "classnames": "^2.2.5",
+    "lodash": "^4.14.1",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "react-scripts": "0.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

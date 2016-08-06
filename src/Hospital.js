@@ -19,7 +19,7 @@ class Hospital extends React.Component {
       for (let i = 1; i <= 12; i++) {
         const month = i+'\u6708';
         monthData.push(hospital[month]);
-        sum += parseInt(hospital[month], 10);
+        sum += parseFloat(hospital[month]);
       };
 
       const avg = sum/12.;

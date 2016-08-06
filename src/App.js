@@ -19,9 +19,23 @@ var fuse = new Fuse(
 class App extends Component {
   state = {
     hospital: list[0],
+    average: {
+      '1月': 8.2,
+      '2月': 7.7,
+      '3月': 8.16,
+      '4月': 8.21,
+      '5月': 8.26,
+      '6月': 8.23,
+      '7月': 8.2,
+      '8月': 8.04,
+      '9月': 8.08,
+      '10月': 8.19,
+      '11月': 8.05,
+      '12月': 7.93,
+    },
   }
   render() {
-    const { hospital } = this.state;
+    const { hospital, average } = this.state;
 
     return (
       <div className="viewport">
@@ -39,7 +53,7 @@ class App extends Component {
           />
         </div>
         <div className="hospital">
-          <Hospital hospital={hospital} />
+          <Hospital hospital={hospital} average={average} />
         </div>
         <span>
           橫軸是月份，縱軸就是傳說中的「護病比」！也就是「一個護理人員要照顧幾個病人」，數字越高越血汗。

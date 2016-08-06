@@ -7,25 +7,24 @@ import C3Chart from 'react-c3js';
 //   data3: [300, 200, 160, 400, 250, 250]
 // }
 
+// const axis = {
+//   x: {
+//     label: 'index',
+//   },
+//   y: {
+//     label: {
+//       text: 'rate',
+//       position: 'outer-middle',
+//     }
+//   }
+// }
+
 class Chart extends React.Component {
   render() { 
     const data = {
       json: this.props.jsonData,
     };
-    const axis = {
-      x: {
-        label: '月份',
-        tick: {
-          values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-        }
-      },
-      y: {
-        label: {
-          text: '護病比率',
-          position: 'outer-middle',
-        }
-      },
-    };
+    const axis = this.props.axisJsonData;
     return (
       <C3Chart data={data} axis={axis} />
     );
@@ -34,6 +33,7 @@ class Chart extends React.Component {
 
 Chart.propTypes = {
   jsonData: PropTypes.object.isRequired,
+  axisJsonData: PropTypes.object,
 }
 
 export default Chart;

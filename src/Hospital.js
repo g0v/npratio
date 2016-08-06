@@ -1,36 +1,45 @@
 import React, { PropTypes } from 'react';
 import Chart from './Chart';
 
+const axisJsonData = {
+  x: {
+    label: '月份',
+    type: 'category',
+    categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+  },
+  y: {
+    label: {
+      text: '護病比率',
+      position: 'outer-middle',
+    }
+  },
+};
+
 class Hospital extends React.Component {
   constructor(props) {
     super(props);
     this.displayName = 'Hospital';
   }
   render() {
-    const { hospital } = this.props;
+    const { hospital, average } = this.props;
 
     let jsonData = {};
     let cmp;
 
     if (hospital['醫院簡稱'] !== undefined) {
       let monthData = [];
-      let sum = 0;
+      let avgData = [];
 
       for (let i = 1; i <= 12; i++) {
         const month = i+'\u6708';
         monthData.push(hospital[month]);
-        sum += parseFloat(hospital[month]);
+        avgData.push(average[month]);
       };
 
-      const avg = sum/12.;
-      let avgData = [];
-      for (let i = 0; i < 12; i++) {
-        avgData.push(avg.toFixed(1));
-      };
       jsonData[hospital['醫院簡稱']] = monthData;
-      jsonData['本院平均'] = avgData;
+      jsonData['全台平均'] = avgData;
 
-      cmp = <Chart jsonData={jsonData} />;
+      cmp = <Chart jsonData={jsonData} axisJsonData={axisJsonData} />;
     } else {
       cmp = <div>{' '}</div>;
     }
@@ -45,6 +54,7 @@ class Hospital extends React.Component {
 
 Hospital.propTypes = {
   hospital: PropTypes.object.isRequired,
+  average: PropTypes.object.isRequired,
 };
 
 export default Hospital;

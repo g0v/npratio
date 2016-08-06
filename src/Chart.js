@@ -12,8 +12,16 @@ class Chart extends React.Component {
     const data = {
       json: this.props.jsonData,
     };
+    const axis = {
+      x: {
+        label: '月份',
+      },
+      y: {
+        label: '護病比數字',
+      },
+    };
     return (
-      <C3Chart data={data} />
+      <C3Chart data={data} axis={axis} />
     );
   }
 }

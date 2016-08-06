@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import Fuse from 'fuse.js';
 import SearchBar from './SearchBar';
 import Hospital from './Hospital';
 import data from './data/data.json';
 import './App.css';
 
 const list = _.map(data, (item) => ({ ...item, name: item['醫事機構名稱'] }));
+
+var fuse = new Fuse(
+  list, {
+  keys: [
+    '醫事機構名稱',
+    '醫院簡稱'
+  ]
+});
 
 class App extends Component {
   render() {
@@ -14,19 +23,7 @@ class App extends Component {
         <SearchBar
           placeholder="搜尋醫院"
           onChange={(input, resolve) => {
-            const keyword = input.split('');
-            console.log(keyword);
-            const suggestion = _.map(list, (item) => {
-              if (item['醫事機構名稱'] === input) {
-                return {...item, priority: 5};
-              } else if (item['醫院簡稱'] === input) {
-                return {...item, priority: 4};
-              }
-
-              return {...item, priority: 0};
-            });
-            ;
-            resolve(_.take(_.sortBy(suggestion, ['priority']), 5));
+            resolve(_.take([].concat(fuse.search(input)), 5));
           }}
           onSearch={(input) => {
             if (!input) return;

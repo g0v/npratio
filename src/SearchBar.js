@@ -113,7 +113,6 @@ class SearchBar extends React.Component {
 
   render() {
     const { suggestions, isFocused } = this.state;
-    console.log(suggestions);
     return (
       <div className="search-bar-wrapper">
         <div className={classNames(

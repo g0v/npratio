@@ -18,10 +18,11 @@ var fuse = new Fuse(
 
 class App extends Component {
   state = {
-    hospital: {}
+    hospital: list[0],
   }
   render() {
     const { hospital } = this.state;
+
     return (
       <div className="viewport">
         <div className="searchbar">

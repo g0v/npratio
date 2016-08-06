@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import SearchBar from './SearchBar';
+import Hospital from './Hospital';
 import data from './data/data.json';
 import './App.css';
 
@@ -32,6 +33,7 @@ class App extends Component {
             console.info('Searching:', input);
           }}
         />
+        <Hospital hospital={list[0]} />
       </div>
     );
   }

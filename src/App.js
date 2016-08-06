@@ -17,7 +17,11 @@ var fuse = new Fuse(
 });
 
 class App extends Component {
+  state = {
+    hospital: {}
+  }
   render() {
+    const { hospital } = this.state;
     return (
       <div className="viewport">
         <SearchBar
@@ -25,12 +29,12 @@ class App extends Component {
           onChange={(input, resolve) => {
             resolve(_.take([].concat(fuse.search(input)), 5));
           }}
-          onSearch={(input) => {
-            if (!input) return;
-            console.info('Searching:', input);
+          onSearch={(hospital) => {
+            if (!hospital) return;
+            this.setState({ hospital });
           }}
         />
-        <Hospital hospital={list[0]} />
+        <Hospital hospital={hospital} />
       </div>
     );
   }

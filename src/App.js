@@ -40,6 +40,14 @@ class App extends Component {
         <div className="hospital">
           <Hospital hospital={hospital} />
         </div>
+        <div className="tip">
+          <div>如果你覺得某家醫院的數字「是假的！」，可以試試看：〈盡量附上相關事證依據喔！〉</div>
+            <ol>
+              <li><a target="_blank" href="http://opinion.nhi.gov.tw/iftpa/PA01T02.php">找政府！寫信到衛福部健保署署長信箱[點我]</a></li>
+              <li><a target="_blank" href="https://www.facebook.com/TMAL119/?fref=ts">找醫勞盟！傳訊息給醫勞盟粉絲團[點我]</a></li>
+              <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/17hkvPVgqW06rO7TQMQGgIpJMiJ4QTiGQXGDzoNXGjKE/edit#gid=0">找民代！從立委咖電喂找立委反映[點我]</a></li>
+            </ol>
+        </div>
       </div>
     );
   }

@@ -2,11 +2,10 @@
   text-align: left;
   width: 100%;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
   border: 1px solid #666;
   padding: 18px;
   box-sizing: border-box;
-  margin-top: 20px;
   background: #FFF;
   border-radius: 10px;
 }
@@ -110,4 +109,19 @@
 
 .search-bar-suggestions .highlighted {
   background: #f5f5f5;
+}
+
+.tip {
+  background: #666;
+  margin: -18px;
+  margin-top: 15px;
+  padding: 10px;
+  padding-top: 20px;
+  box-sizing: border-box;
+  border-radius: 0 0 10px 10px;
+  color: #FFF;
+}
+
+.tip a {
+  color: #FFF;
 }

@@ -47,7 +47,7 @@ class Hospital extends React.Component {
       for (let i = 0; i < 12; i++) {
         localAvgData.push(avg);
       };
-      jsonData['本院平均'] = localAvgData;
+      jsonData[hospital['醫院簡稱'] + '年度平均'] = localAvgData;
 
       cmp = <Chart jsonData={jsonData} axisJsonData={axisJsonData} />;
     } else {

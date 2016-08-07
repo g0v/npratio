@@ -29,15 +29,25 @@ class Hospital extends React.Component {
     if (hospital['醫院簡稱'] !== undefined) {
       let monthData = [];
       let avgData = [];
+      let sum = 0;
+      let localAvgData = [];
 
       for (let i = 1; i <= 12; i++) {
         const month = i+'\u6708';
         monthData.push(hospital[month]);
         avgData.push(average[month]);
+        sum += parseFloat(hospital[month]);
       };
 
       jsonData[hospital['醫院簡稱']] = monthData;
-      jsonData['全台平均'] = avgData;
+      // jsonData['全台平均'] = avgData;
+
+      let avg = sum/12;
+      avg = avg.toFixed(1);
+      for (let i = 0; i < 12; i++) {
+        localAvgData.push(avg);
+      };
+      jsonData['本院平均'] = localAvgData;
 
       cmp = <Chart jsonData={jsonData} axisJsonData={axisJsonData} />;
     } else {

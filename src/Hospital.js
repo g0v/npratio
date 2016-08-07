@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Chart from './Chart';
+const d3 = require('d3');
 
 const axisJsonData = {
   x: {
@@ -11,7 +12,10 @@ const axisJsonData = {
     label: {
       text: '護病比率',
       position: 'outer-middle',
-    }
+    },
+    tick: {
+      format: d3.format('.3n'),
+    },
   },
 };
 

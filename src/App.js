@@ -55,16 +55,21 @@ class App extends Component {
         <div className="hospital">
           <Hospital hospital={hospital} average={average} />
         </div>
-        <span>
+        <div>
           橫軸是月份，縱軸就是傳說中的「護病比」！也就是「一個護理人員要照顧幾個病人」，數字越高越血汗。
-        </span>
+        </div>
         <div className="tip">
+          <div>護病比1-2月劇烈變動，依經驗有以下可能原因：</div>
+          <ul>
+            <li>過年前後時段，選擇性開刀會減少，外科病床多的醫院，護病比會降低。</li>
+            <li>過年後是護理人員離職高峰（年終獎金已領、準備7月的各種考試等），護病比會攀升。</li>
+          </ul>
           <div>如果你覺得某家醫院的數字「是假的！」，可以試試看：〈盡量附上相關事證依據喔！〉</div>
-            <ol>
-              <li><a target="_blank" href="http://opinion.nhi.gov.tw/iftpa/PA01T02.php">找政府！寫信到衛福部健保署署長信箱[點我]</a></li>
-              <li><a target="_blank" href="https://www.facebook.com/TMAL119/?fref=ts">找醫勞盟！傳訊息給醫勞盟粉絲團[點我]</a></li>
-              <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/17hkvPVgqW06rO7TQMQGgIpJMiJ4QTiGQXGDzoNXGjKE/edit#gid=0">找民代！從立委咖電喂找立委反映[點我]</a></li>
-            </ol>
+          <ol>
+            <li><a target="_blank" href="http://opinion.nhi.gov.tw/iftpa/PA01T02.php">找政府！寫信到衛福部健保署署長信箱[點我]</a></li>
+            <li><a target="_blank" href="https://www.facebook.com/TMAL119/?fref=ts">找醫勞盟！傳訊息給醫勞盟粉絲團[點我]</a></li>
+            <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/17hkvPVgqW06rO7TQMQGgIpJMiJ4QTiGQXGDzoNXGjKE/edit#gid=0">找民代！從立委咖電喂找立委反映[點我]</a></li>
+          </ol>
         </div>
       </div>
     );

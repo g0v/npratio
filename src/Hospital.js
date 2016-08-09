@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
-import Chart from './Chart';
+import C3Chart from 'react-c3js';
 const d3 = require('d3');
+import './Hospital.css';
 
-const axisJsonData = {
+const axis = {
   x: {
     label: '月份',
     type: 'category',
@@ -34,7 +35,6 @@ class Hospital extends React.Component {
       let monthData = [];
       let avgData = [];
       let sum = 0;
-      let localAvgData = [];
 
       for (let i = 1; i <= 12; i++) {
         const month = i+'\u6708';
@@ -48,12 +48,20 @@ class Hospital extends React.Component {
 
       let avg = sum/12;
       avg = avg.toFixed(1);
-      for (let i = 0; i < 12; i++) {
-        localAvgData.push(avg);
-      };
-      jsonData[hospital['醫院簡稱'] + '年度平均'] = localAvgData;
 
-      cmp = <Chart jsonData={jsonData} axisJsonData={axisJsonData} />;
+      let grid = {
+        y: {
+          lines: [{
+            value: avg,
+            text: hospital['醫院簡稱'] + '年度平均',
+            position: 'start',
+            class: 'local',
+          }],
+        },
+      };
+
+      const data = {json: jsonData};
+      cmp = <C3Chart data={data} axis={axis} grid={grid} />;
     } else {
       cmp = <div>{' '}</div>;
     }
